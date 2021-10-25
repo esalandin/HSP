@@ -1,7 +1,7 @@
 clear all;
 close all;
 time_log(1)=time;
-format short G;
+format short g;
 
 global ricetta;
 init_ricetta;
