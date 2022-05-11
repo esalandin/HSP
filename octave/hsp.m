@@ -6,9 +6,9 @@ format short g;
 global ricetta;
 init_ricetta;
 global numJobs;
-numJobs=14;
+numJobs=5;
 global numHoists;
-numHoists=2;
+numHoists=1;
 
 margin=10;
 
@@ -47,7 +47,7 @@ for s=1:num_steps()+1
   A= [A; RC];
   b= [b; vb];
   ctype= [ctype "S"];
-endfor  
+endfor
 
 % lin2
 % tempo di permanenza
@@ -129,7 +129,7 @@ for s1=0:num_steps()-1
       A= [A; RC];
       b= [b; vb];
       ctype= [ctype "U"];
-      
+
       RC=zeros(1, index_var("num"));
       RC(index_var("entry", s2+1))= 1;
       RC(index_var("period"))= -k;
@@ -139,7 +139,7 @@ for s1=0:num_steps()-1
       A= [A; RC];
       b= [b; vb];
       ctype= [ctype "U"];
-      
+
     endfor
   endfor
 endfor
@@ -184,7 +184,7 @@ if (strcmp(collision, "partition"))
       else
         RC(index_var("hoist_r", s2))= -1;
         RC(index_var("hoist_r", s1))= 1;
-      endif        
+      endif
       vb= 0;
       A= [A; RC];
       b= [b; vb];
