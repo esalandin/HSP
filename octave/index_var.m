@@ -1,19 +1,20 @@
 function index= index_var(dato, step=0, step2=0, k=0)
   global numJobs;
   global numHoists;
-  
-  if (strcmp(dato, "period"))
-    index=1;
 
+% tempo di ciclo
+ if (strcmp(dato, "period"))
+    index=1;
+% istante di ingresso della barra nella posizione
     elseif (strcmp(dato, "entry"))
     index= index_var("period")+1+step;
-
+% istante di uscita della barra dalla posizione
     elseif (strcmp(dato, "removal"))
     index= index_var("entry", num_steps()+1) + 1+ step;
-
+% carro che deposita la barra nella posizione
     elseif (strcmp(dato, "hoist_e"))
     index= index_var("removal", num_steps()+1) + 1 + step;
-
+% carro che preleva la barra dalla posizione
     elseif (strcmp(dato, "hoist_r"))
     index= index_var("hoist_e", num_steps()+1) + 1 + step;
 
